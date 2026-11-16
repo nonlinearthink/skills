@@ -1,0 +1,4 @@
+interface:
+  display_name: "变更影响面与回归选测"
+  short_description: "按行为与契约传播选择核心、模块和全量回归，说明测试覆盖与停止边界"
+  default_prompt: "使用 $regression-testing 分析当前变更的影响面，选择必要的回归测试并执行验证。"

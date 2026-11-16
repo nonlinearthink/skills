@@ -24,10 +24,17 @@ npx skills add https://github.com/nonlinearthink/skills --skill ui-design
 npx skills add https://github.com/nonlinearthink/skills --list
 ```
 
+只安装 `regression-testing`：
+
+```bash
+npx skills add https://github.com/nonlinearthink/skills --skill regression-testing
+```
+
 ## Skills
 
 | Skill | 用途 |
 | --- | --- |
+| [regression-testing](skills/regression-testing/SKILL.md) | 根据行为与契约传播分析变更影响，选择核心、模块或全量回归，并验证测试覆盖和停止边界。 |
 | [ui-design](skills/ui-design/SKILL.md) | 编写或修改页面、组件、布局、样式、交互和界面文案，兼顾任务完成、产品视觉识别与信息层级。 |
 
 `ui-design` 的视觉方向、排版、动效与自检原则参考了 Anthropic 的 [frontend-design](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md)（[UI Skills 页面](https://www.ui-skills.com/skills/anthropics/frontend-design)），结合本 skill 的任务导向与局部修改范围整理。
@@ -38,6 +45,10 @@ npx skills add https://github.com/nonlinearthink/skills --list
 
 ```text
 skills/
+├── regression-testing/
+│   ├── SKILL.md
+│   ├── agents/openai.yaml
+│   └── references/project-test-map.md
 └── ui-design/
     ├── SKILL.md
     └── agents/
