@@ -1,0 +1,6 @@
+.DS_Store
+
+# 本地安装的 skills 及其安装记录；发布源码统一放在 skills/。
+/.agents/skills/
+/.claude/skills/
+/skills-lock.json
