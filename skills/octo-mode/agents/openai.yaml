@@ -1,0 +1,5 @@
+interface:
+  display_name: "octo-mode"
+  short_description: "从目标自动选路，衔接 Matt 方法完成实现、验证、独立审查与 PR 交付"
+policy:
+  allow_implicit_invocation: true
