@@ -12,28 +12,10 @@ npx skills add https://github.com/nonlinearthink/skills
 
 按提示选择 skill 和目标 agent。默认安装到当前项目；添加 `-g` 可全局安装。
 
-只安装 `ui-design`：
-
-```bash
-npx skills add https://github.com/nonlinearthink/skills --skill ui-design
-```
-
 查看可安装的 skills：
 
 ```bash
 npx skills add https://github.com/nonlinearthink/skills --list
-```
-
-只安装 `regression-testing`：
-
-```bash
-npx skills add https://github.com/nonlinearthink/skills --skill regression-testing
-```
-
-只安装 `test-gardening`：
-
-```bash
-npx skills add https://github.com/nonlinearthink/skills --skill test-gardening
 ```
 
 ## Skills
@@ -61,7 +43,7 @@ skills/
 ├── test-gardening/
 │   ├── SKILL.md
 │   ├── agents/openai.yaml
-│   └── references/test-case-inventory.md
+│   └── references/gardening-checklist.md
 └── ui-design/
     ├── SKILL.md
     └── agents/
