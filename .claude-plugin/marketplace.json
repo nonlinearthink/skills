@@ -25,7 +25,7 @@
       ]
     },
     {
-      "name": "upstream-design-skills",
+      "name": "other-third-party-skills",
       "source": "./",
       "description": "Selected skills from anthropics/skills.",
       "skills": [

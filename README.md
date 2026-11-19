@@ -37,7 +37,7 @@ npx skills add nonlinearthink/skills
 
 - **Nonlinearthink/skills** 包含 `octo-mode`、`test-gardening` 和 `regression-testing`。
 - **Mattpocock/skills** 包含 `pr`、`codebase-design`、`domain-modeling`、`grilling` 和 `tdd`。
-- **Upstream Design Skills** 包含 `frontend-design`，来源为 [anthropics/skills](https://github.com/anthropics/skills)。
+- **Other Third Party Skills** 包含 `frontend-design`，来源为 [anthropics/skills](https://github.com/anthropics/skills)。
 
 安装 `octo-mode` 及其随仓库发布的依赖时，勾选 `octo-mode` 和 **Mattpocock/skills** 整组。脚本或 CI 可以按名称安装这六项。
 
