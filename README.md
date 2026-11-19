@@ -27,30 +27,28 @@
 
 ## 安装
 
-使用完整开发流程时，先按 [mattpocock/skills](https://github.com/mattpocock/skills) 的说明安装基础 skills，再安装本仓库的补充 skills。下表中的独立 skills 也可按需单独使用。
-
-在需要使用 skill 的项目目录运行：
+在目标项目目录运行以下命令。
 
 ```bash
-npx skills add https://github.com/nonlinearthink/skills
+npx skills add nonlinearthink/skills
 ```
 
-按提示选择 skill 和目标 agent。默认安装到当前项目；添加 `-g` 可全局安装。
+在安装菜单里选择 **Mattpocock/skills** 组，然后选择目标 agent。该组包含 `octo-mode` 和 Matt Pocock 的 `pr`、`codebase-design`、`domain-modeling`、`grilling`、`tdd`。默认安装到当前项目，添加 `-g` 可全局安装。下表中的独立 skills 也可按需安装。
 
-试用尚未推送的本地 `octo-mode` 源码，可在本仓库运行：
+脚本或 CI 可以按名称一次安装该组的全部技能。
 
 ```bash
-npx skills add ./skills --skill octo-mode -a codex claude-code
+npx skills add nonlinearthink/skills --skill octo-mode pr codebase-design domain-modeling grilling tdd -a codex claude-code -y
 ```
 
-该命令安装到当前仓库。要在其他项目中使用，可在目标项目传入本仓库 `skills/` 的绝对路径，或加 `-g` 全局安装。
+试装本地源码时，把命令里的 `nonlinearthink/skills` 换成此仓库根目录。在本仓库运行时可用 `.`。
 
 安装到目标 agent 后，在项目中给目标即可，例如 Codex 中输入 `$octo-mode 修复登录重试失败的问题`，Claude Code 中输入 `/octo-mode 修复登录重试失败的问题`。入口也支持自动发现；显式调用可确保选择本流程。上游部分入口只允许用户主动调用，因此 `octo-mode` 使用自身的阶段适配协议，具体差异见 [上游适配规则](skills/octo-mode/references/upstream.md)。
 
-查看可安装的 skills：
+若相应流程还需要其他上游方法，按定位器提示安装所缺的 skill。查看本仓库可安装的 skills 可运行以下命令。
 
 ```bash
-npx skills add https://github.com/nonlinearthink/skills --list
+npx skills add nonlinearthink/skills --list
 ```
 
 ## Skills
@@ -68,7 +66,7 @@ npx skills add https://github.com/nonlinearthink/skills --list
 
 ## 维护
 
-每个 skill 的源码放在 `skills/<skill-name>/`：
+本仓库自有 skill 的源码放在 `skills/<skill-name>/`。
 
 ```text
 skills/
@@ -94,10 +92,12 @@ skills/
 
 新增 skill 时创建对应目录，编写带有 `name` 和 `description` YAML frontmatter 的 `SKILL.md`。名称与目录名一致，使用小写字母、数字和连字符。需要时再添加 `agents/`、`references/`、`scripts/` 或 `assets/`。
 
-提交前检查发现结果：
+从安装组发布的 Matt skills 位于 `third_party/mattpocock/`，保留上游目录结构、配套文件和每个安装目录内的 MIT 许可。其版本、路径和入口文件哈希记录在 [upstream.json](skills/octo-mode/references/upstream.json)，安装组成员记录在 [marketplace.json](.claude-plugin/marketplace.json)。更新依赖时同步这两个文件和对应的上游目录。
+
+在仓库根目录检查安装目录发现结果。
 
 ```bash
-npx skills add ./skills --list
+npx skills add . --list
 ```
 
 `octo-mode` 的定位脚本回归：
@@ -106,4 +106,4 @@ npx skills add ./skills --list
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests/octo-mode -v
 ```
 
-将更新推送到 GitHub 后，远程安装命令即可获取。`.agents/skills/`、`.claude/skills/` 和 `skills-lock.json` 用于本地安装，已在 Git 中忽略；维护和发布时修改 `skills/` 下的源码。
+将更新推送到 GitHub 后，远程安装命令即可获取。

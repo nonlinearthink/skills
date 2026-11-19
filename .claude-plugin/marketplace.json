@@ -1,0 +1,19 @@
+{
+  "name": "nonlinearthink-skills",
+  "owner": { "name": "nonlinearthink" },
+  "plugins": [
+    {
+      "name": "mattpocock/skills",
+      "source": "./",
+      "description": "octo-mode with selected skills from Matt Pocock.",
+      "skills": [
+        "./skills/octo-mode",
+        "./third_party/mattpocock/skills/engineering/pr",
+        "./third_party/mattpocock/skills/engineering/codebase-design",
+        "./third_party/mattpocock/skills/engineering/domain-modeling",
+        "./third_party/mattpocock/skills/productivity/grilling",
+        "./third_party/mattpocock/skills/engineering/tdd"
+      ]
+    }
+  ]
+}
