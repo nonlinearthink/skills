@@ -33,9 +33,12 @@
 npx skills add nonlinearthink/skills
 ```
 
-在安装菜单里选择 **Mattpocock/skills** 组，然后选择目标 agent。该组包含 `octo-mode` 和 Matt Pocock 的 `pr`、`codebase-design`、`domain-modeling`、`grilling`、`tdd`。默认安装到当前项目，添加 `-g` 可全局安装。下表中的独立 skills 也可按需安装。
+在安装菜单里选择需要的技能，然后选择目标 agent。默认安装到当前项目，添加 `-g` 可全局安装。
 
-脚本或 CI 可以按名称一次安装该组的全部技能。
+- **Nonlinearthink/skills** 包含 `octo-mode`、`ui-design`、`test-gardening` 和 `regression-testing`。
+- **Mattpocock/skills** 包含 `pr`、`codebase-design`、`domain-modeling`、`grilling` 和 `tdd`。
+
+安装 `octo-mode` 及其随仓库发布的依赖时，勾选 `octo-mode` 和 **Mattpocock/skills** 整组。脚本或 CI 可以按名称安装这六项。
 
 ```bash
 npx skills add nonlinearthink/skills --skill octo-mode pr codebase-design domain-modeling grilling tdd -a codex claude-code -y

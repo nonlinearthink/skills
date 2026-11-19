@@ -3,11 +3,21 @@
   "owner": { "name": "nonlinearthink" },
   "plugins": [
     {
-      "name": "mattpocock/skills",
+      "name": "nonlinearthink/skills",
       "source": "./",
-      "description": "octo-mode with selected skills from Matt Pocock.",
+      "description": "Skills maintained by nonlinearthink.",
       "skills": [
         "./skills/octo-mode",
+        "./skills/ui-design",
+        "./skills/test-gardening",
+        "./skills/regression-testing"
+      ]
+    },
+    {
+      "name": "mattpocock/skills",
+      "source": "./",
+      "description": "Selected skills from Matt Pocock.",
+      "skills": [
         "./third_party/mattpocock/skills/engineering/pr",
         "./third_party/mattpocock/skills/engineering/codebase-design",
         "./third_party/mattpocock/skills/engineering/domain-modeling",
