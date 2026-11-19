@@ -67,6 +67,10 @@ npx skills add nonlinearthink/skills --list
 
 `ui-design` 的视觉方向、排版、动效与自检原则参考了 Anthropic 的 [frontend-design](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md)（[UI Skills 页面](https://www.ui-skills.com/skills/anthropics/frontend-design)），结合本 skill 的任务导向与局部修改范围整理。
 
+## 许可证
+
+本仓库的自有内容采用 [MIT 许可证](LICENSE)。`Nonlinearthink/skills` 组的四个技能各自附带一份 `LICENSE`，随技能一起安装。随附的第三方内容适用各自的上游许可。
+
 ## 维护
 
 本仓库自有 skill 的源码放在 `skills/<skill-name>/`。
@@ -78,17 +82,21 @@ skills/
 │   ├── agents/openai.yaml
 │   ├── references/
 │   ├── scripts/resolve_matt.py
+│   ├── LICENSE
 │   └── LICENSE-Matt-Pocock.txt
 ├── regression-testing/
 │   ├── SKILL.md
+│   ├── LICENSE
 │   ├── agents/openai.yaml
 │   └── references/project-test-map.md
 ├── test-gardening/
 │   ├── SKILL.md
+│   ├── LICENSE
 │   ├── agents/openai.yaml
 │   └── references/gardening-checklist.md
 └── ui-design/
     ├── SKILL.md
+    ├── LICENSE
     └── agents/
         └── openai.yaml
 ```
