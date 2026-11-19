@@ -21,7 +21,18 @@
         "./third_party/mattpocock/skills/engineering/codebase-design",
         "./third_party/mattpocock/skills/engineering/domain-modeling",
         "./third_party/mattpocock/skills/productivity/grilling",
-        "./third_party/mattpocock/skills/engineering/tdd"
+        "./third_party/mattpocock/skills/engineering/tdd",
+        "./third_party/mattpocock/skills/engineering/diagnosing-bugs",
+        "./third_party/mattpocock/skills/productivity/writing-for-agents",
+        "./third_party/mattpocock/skills/engineering/code-review",
+        "./third_party/mattpocock/skills/engineering/retro",
+        "./third_party/mattpocock/skills/engineering/grill-with-docs",
+        "./third_party/mattpocock/skills/engineering/to-spec",
+        "./third_party/mattpocock/skills/engineering/to-tickets",
+        "./third_party/mattpocock/skills/engineering/implement",
+        "./third_party/mattpocock/skills/engineering/implement-spec",
+        "./third_party/mattpocock/skills/engineering/prototype",
+        "./third_party/mattpocock/skills/engineering/research"
       ]
     },
     {

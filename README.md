@@ -36,18 +36,24 @@ npx skills add nonlinearthink/skills
 在安装菜单里选择需要的技能，然后选择目标 agent。默认安装到当前项目，添加 `-g` 可全局安装。
 
 - **Nonlinearthink/skills** 包含 `octo-mode`、`test-gardening` 和 `regression-testing`。
-- **Mattpocock/skills** 包含 `pr`、`codebase-design`、`domain-modeling`、`grilling` 和 `tdd`。
+- **Mattpocock/skills** 包含 `pr`、`codebase-design`、`domain-modeling`、`grilling`、`tdd`、`diagnosing-bugs`、`writing-for-agents`、`code-review`、`retro`、`grill-with-docs`、`to-spec`、`to-tickets`、`implement`、`implement-spec`、`prototype` 和 `research`。
 - **Other Third Party Skills** 包含 `frontend-design`，来源为 [anthropics/skills](https://github.com/anthropics/skills)。
 
-安装 `octo-mode` 及其随仓库发布的依赖时，勾选 `octo-mode` 和 **Mattpocock/skills** 整组。脚本或 CI 可以按名称安装这六项。
+要同时安装 `octo-mode` 和 **Mattpocock/skills** 整组，可在菜单中勾选，也可按名称安装。
 
 ```bash
-npx skills add nonlinearthink/skills --skill octo-mode pr codebase-design domain-modeling grilling tdd -a codex claude-code -y
+npx skills add nonlinearthink/skills \
+  --skill octo-mode pr codebase-design domain-modeling grilling tdd \
+  diagnosing-bugs writing-for-agents code-review retro \
+  grill-with-docs to-spec to-tickets implement implement-spec prototype research \
+  -a codex claude-code -y
 ```
 
 试装本地源码时，把命令里的 `nonlinearthink/skills` 换成此仓库根目录。在本仓库运行时可用 `.`。
 
 安装到目标 agent 后，在项目中给目标即可，例如 Codex 中输入 `$octo-mode 修复登录重试失败的问题`，Claude Code 中输入 `/octo-mode 修复登录重试失败的问题`。入口也支持自动发现；显式调用可确保选择本流程。上游部分入口只允许用户主动调用，因此 `octo-mode` 使用自身的阶段适配协议，具体差异见 [上游适配规则](skills/octo-mode/references/upstream.md)。
+
+单独使用 `to-spec`、`to-tickets` 或 `implement-spec` 前，需要配置项目的 issue tracker。[上游配置说明](https://github.com/mattpocock/skills/tree/5863806dd4e15c63174bee4e7515a4256792ecfa/skills/engineering/setup-matt-pocock-skills)
 
 若相应流程还需要其他上游方法，按定位器提示安装所缺的 skill。查看本仓库可安装的 skills 可运行以下命令。
 
