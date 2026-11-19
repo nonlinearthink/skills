@@ -35,8 +35,9 @@ npx skills add nonlinearthink/skills
 
 在安装菜单里选择需要的技能，然后选择目标 agent。默认安装到当前项目，添加 `-g` 可全局安装。
 
-- **Nonlinearthink/skills** 包含 `octo-mode`、`ui-design`、`test-gardening` 和 `regression-testing`。
+- **Nonlinearthink/skills** 包含 `octo-mode`、`test-gardening` 和 `regression-testing`。
 - **Mattpocock/skills** 包含 `pr`、`codebase-design`、`domain-modeling`、`grilling` 和 `tdd`。
+- **Upstream Design Skills** 包含 `frontend-design`，来源为 [anthropics/skills](https://github.com/anthropics/skills)。
 
 安装 `octo-mode` 及其随仓库发布的依赖时，勾选 `octo-mode` 和 **Mattpocock/skills** 整组。脚本或 CI 可以按名称安装这六项。
 
@@ -61,15 +62,13 @@ npx skills add nonlinearthink/skills --list
 | [octo-mode](skills/octo-mode/SKILL.md) | 从开发目标自动路由，按需衔接调查、规格与依赖图、实现、验证、独立审查、修复和 PR 交付；支持只读与本地交付边界。 |
 | [regression-testing](skills/regression-testing/SKILL.md) | 根据行为与契约传播分析变更影响，只选择影响面内的用例及项目明确要求的门禁，编排执行并验证覆盖与停止边界。 |
 | [test-gardening](skills/test-gardening/SKILL.md) | 盘点、去重和清理手工及自动化用例，按风险建立核心、模块、全量分层和最小发布回归集，评估自动化候选。 |
-| [ui-design](skills/ui-design/SKILL.md) | 编写或修改页面、组件、布局、样式、交互和界面文案，兼顾任务完成、产品视觉识别与信息层级。 |
+| [frontend-design](third_party/anthropics/skills/frontend-design/SKILL.md) | Anthropic 的前端设计技能，指导新建和改版时的视觉方向、排版、动效和界面文案。 |
 
 `regression-testing` 和 `test-gardening` 的回归分层、变更影响面、最小发布回归集、用例清理、入口出口和自动化取舍原则参考了 PingCode 的[《回归测试耗时太长怎么办？实操清单》](https://docs.pingcode.com/insights/a784hn5m0ja8casoo7cyhn06)，并补充了代码级传播追踪、选择核对与证据要求。
 
-`ui-design` 的视觉方向、排版、动效与自检原则参考了 Anthropic 的 [frontend-design](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md)（[UI Skills 页面](https://www.ui-skills.com/skills/anthropics/frontend-design)），结合本 skill 的任务导向与局部修改范围整理。
-
 ## 许可证
 
-本仓库的自有内容采用 [MIT 许可证](LICENSE)。`Nonlinearthink/skills` 组的四个技能各自附带一份 `LICENSE`，随技能一起安装。随附的第三方内容适用各自的上游许可。
+本仓库的自有内容采用 [MIT 许可证](LICENSE)。`Nonlinearthink/skills` 组的三个技能各自附带一份 `LICENSE`，随技能一起安装。随附的第三方内容适用各自的上游许可。
 
 ## 维护
 
@@ -89,21 +88,18 @@ skills/
 │   ├── LICENSE
 │   ├── agents/openai.yaml
 │   └── references/project-test-map.md
-├── test-gardening/
-│   ├── SKILL.md
-│   ├── LICENSE
-│   ├── agents/openai.yaml
-│   └── references/gardening-checklist.md
-└── ui-design/
+└── test-gardening/
     ├── SKILL.md
     ├── LICENSE
-    └── agents/
-        └── openai.yaml
+    ├── agents/openai.yaml
+    └── references/gardening-checklist.md
 ```
 
 新增 skill 时创建对应目录，编写带有 `name` 和 `description` YAML frontmatter 的 `SKILL.md`。名称与目录名一致，使用小写字母、数字和连字符。需要时再添加 `agents/`、`references/`、`scripts/` 或 `assets/`。
 
 从安装组发布的 Matt skills 位于 `third_party/mattpocock/`，保留上游目录结构、配套文件和每个安装目录内的 MIT 许可。其版本、路径和入口文件哈希记录在 [upstream.json](skills/octo-mode/references/upstream.json)，安装组成员记录在 [marketplace.json](.claude-plugin/marketplace.json)。更新依赖时同步这两个文件和对应的上游目录。
+
+Anthropic 的 `frontend-design` 位于 `third_party/anthropics/skills/frontend-design/`，原样收录 [上游快照 `e4bb5d9`](https://github.com/anthropics/skills/tree/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/frontend-design)中的技能文件和 [Apache 2.0 许可证](third_party/anthropics/skills/frontend-design/LICENSE.txt)。更新时同步该目录和这里的快照链接。
 
 在仓库根目录检查安装目录发现结果。
 

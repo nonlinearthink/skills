@@ -8,7 +8,6 @@
       "description": "Skills maintained by nonlinearthink.",
       "skills": [
         "./skills/octo-mode",
-        "./skills/ui-design",
         "./skills/test-gardening",
         "./skills/regression-testing"
       ]
@@ -23,6 +22,14 @@
         "./third_party/mattpocock/skills/engineering/domain-modeling",
         "./third_party/mattpocock/skills/productivity/grilling",
         "./third_party/mattpocock/skills/engineering/tdd"
+      ]
+    },
+    {
+      "name": "upstream-design-skills",
+      "source": "./",
+      "description": "Selected skills from anthropics/skills.",
+      "skills": [
+        "./third_party/anthropics/skills/frontend-design"
       ]
     }
   ]
