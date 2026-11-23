@@ -1,0 +1,4 @@
+interface:
+  display_name: "项目回归策略"
+  short_description: "解释测试资产、核心/模块/全量分层、阶段门禁、项目测试地图与自动化策略"
+  default_prompt: "使用 $regression-testing-strategy 解释当前项目的回归分层、阶段门禁和测试地图，区分已有事实与待确认策略。"

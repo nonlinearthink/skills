@@ -1,4 +1,0 @@
-interface:
-  display_name: "测试园丁"
-  short_description: "清理重复与失效用例，按风险建立核心、模块、全量分层和最小发布回归集"
-  default_prompt: "使用 $test-gardening 盘点当前项目的测试用例，给出保留、合并、改写、调整、淘汰与补缺口清单，并整理最小发布回归集。"

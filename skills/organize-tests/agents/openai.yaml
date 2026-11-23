@@ -1,0 +1,4 @@
+interface:
+  display_name: "应用项目回归策略"
+  short_description: "手动整理测试资产、回归分层、阶段门禁与项目测试地图，并按确认范围写回"
+  default_prompt: "使用 $organize-tests 盘点并整理当前项目的测试资产与项目测试地图，先给出可审查的处置清单，再按确认范围写回。"

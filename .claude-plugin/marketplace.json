@@ -8,8 +8,9 @@
       "description": "Skills maintained by nonlinearthink.",
       "skills": [
         "./skills/octo-mode",
-        "./skills/test-gardening",
-        "./skills/regression-testing"
+        "./skills/using-regression-testing",
+        "./skills/regression-testing-strategy",
+        "./skills/organize-tests"
       ]
     },
     {

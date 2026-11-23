@@ -35,7 +35,7 @@ npx skills add nonlinearthink/skills
 
 在安装菜单里选择需要的技能，然后选择目标 agent。默认安装到当前项目，添加 `-g` 可全局安装。
 
-- **Nonlinearthink/skills** 包含 `octo-mode`、`test-gardening` 和 `regression-testing`。
+- **Nonlinearthink/skills** 包含 `octo-mode`、`using-regression-testing`、`regression-testing-strategy` 和 `organize-tests`。
 - **Mattpocock/skills** 包含 `pr`、`codebase-design`、`domain-modeling`、`grilling`、`tdd`、`diagnosing-bugs`、`writing-for-agents`、`code-review`、`retro`、`grill-with-docs`、`to-spec`、`to-tickets`、`implement`、`implement-spec`、`prototype` 和 `research`。
 - **Other Third Party Skills** 包含 `frontend-design`，来源为 [anthropics/skills](https://github.com/anthropics/skills)。
 
@@ -53,6 +53,8 @@ npx skills add nonlinearthink/skills \
 
 安装到目标 agent 后，在项目中给目标即可，例如 Codex 中输入 `$octo-mode 修复登录重试失败的问题`，Claude Code 中输入 `/octo-mode 修复登录重试失败的问题`。入口也支持自动发现；显式调用可确保选择本流程。上游部分入口只允许用户主动调用，因此 `octo-mode` 使用自身的阶段适配协议，具体差异见 [上游适配规则](skills/octo-mode/references/upstream.md)。
 
+整理项目测试资产或回归门禁时，显式调用 `organize-tests`（Codex 使用 `$organize-tests`，Claude Code 使用 `/organize-tests`）。该入口只能手动调用，并依赖同组的 `regression-testing-strategy`；它先形成可审查的处置清单，再按确认范围写回。
+
 单独使用 `to-spec`、`to-tickets` 或 `implement-spec` 前，需要配置项目的 issue tracker。[上游配置说明](https://github.com/mattpocock/skills/tree/5863806dd4e15c63174bee4e7515a4256792ecfa/skills/engineering/setup-matt-pocock-skills)
 
 若相应流程还需要其他上游方法，按定位器提示安装所缺的 skill。查看本仓库可安装的 skills 可运行以下命令。
@@ -66,15 +68,16 @@ npx skills add nonlinearthink/skills --list
 | Skill | 用途 |
 | --- | --- |
 | [octo-mode](skills/octo-mode/SKILL.md) | 从开发目标自动路由，按需衔接调查、规格与依赖图、实现、验证、独立审查、修复和 PR 交付；支持只读与本地交付边界。 |
-| [regression-testing](skills/regression-testing/SKILL.md) | 根据行为与契约传播分析变更影响，只选择影响面内的用例及项目明确要求的门禁，编排执行并验证覆盖与停止边界。 |
-| [test-gardening](skills/test-gardening/SKILL.md) | 盘点、去重和清理手工及自动化用例，按风险建立核心、模块、全量分层和最小发布回归集，评估自动化候选。 |
+| [using-regression-testing](skills/using-regression-testing/SKILL.md) | 面向单次变更，根据行为与契约传播选择影响用例，叠加项目门禁，编排执行并交付覆盖证据。 |
+| [regression-testing-strategy](skills/regression-testing-strategy/SKILL.md) | 项目级回归策略的共享参考，定义测试资产、风险分层、核心/模块/全量集合、阶段门禁、测试地图与自动化取舍。 |
+| [organize-tests](skills/organize-tests/SKILL.md) | 只能手动调用；盘点和整理项目测试资产、回归分层与阶段门禁，建立或更新项目测试地图，并按确认范围写回。 |
 | [frontend-design](third_party/anthropics/skills/frontend-design/SKILL.md) | Anthropic 的前端设计技能，指导新建和改版时的视觉方向、排版、动效和界面文案。 |
 
-`regression-testing` 和 `test-gardening` 的回归分层、变更影响面、最小发布回归集、用例清理、入口出口和自动化取舍原则参考了 PingCode 的[《回归测试耗时太长怎么办？实操清单》](https://docs.pingcode.com/insights/a784hn5m0ja8casoo7cyhn06)，并补充了代码级传播追踪、选择核对与证据要求。
+`using-regression-testing` 和 `regression-testing-strategy` 的回归分层、变更影响面、最小发布回归集、用例清理、入口出口和自动化取舍原则参考了 PingCode 的[《回归测试耗时太长怎么办？实操清单》](https://docs.pingcode.com/insights/a784hn5m0ja8casoo7cyhn06)，并补充了代码级传播追踪、选择核对与证据要求。
 
 ## 许可证
 
-本仓库的自有内容采用 [MIT 许可证](LICENSE)。`Nonlinearthink/skills` 组的三个技能各自附带一份 `LICENSE`，随技能一起安装。随附的第三方内容适用各自的上游许可。
+本仓库的自有内容采用 [MIT 许可证](LICENSE)。`Nonlinearthink/skills` 组的四个技能各自附带一份 `LICENSE`，随技能一起安装。随附的第三方内容适用各自的上游许可。
 
 ## 维护
 
@@ -89,16 +92,21 @@ skills/
 │   ├── scripts/resolve_matt.py
 │   ├── LICENSE
 │   └── LICENSE-Matt-Pocock.txt
-├── regression-testing/
+├── using-regression-testing/
+│   ├── SKILL.md
+│   ├── LICENSE
+│   └── agents/openai.yaml
+├── regression-testing-strategy/
 │   ├── SKILL.md
 │   ├── LICENSE
 │   ├── agents/openai.yaml
-│   └── references/project-test-map.md
-└── test-gardening/
+│   └── references/
+│       ├── project-test-map.md
+│       └── test-case-inventory.md
+└── organize-tests/
     ├── SKILL.md
     ├── LICENSE
-    ├── agents/openai.yaml
-    └── references/gardening-checklist.md
+    └── agents/openai.yaml
 ```
 
 新增 skill 时创建对应目录，编写带有 `name` 和 `description` YAML frontmatter 的 `SKILL.md`。名称与目录名一致，使用小写字母、数字和连字符。需要时再添加 `agents/`、`references/`、`scripts/` 或 `assets/`。
